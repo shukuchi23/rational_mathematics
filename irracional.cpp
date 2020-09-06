@@ -3,11 +3,11 @@
 //
 
 #include "irracional.h"
-#include <algorithm>
-
+#include <assert.h>
 irracional::irracional(int irrational)
         : m_rational(1), m_irrational(irrational)
 {
+    assert(irrational >=0);
     lick_balls();
 }
 
