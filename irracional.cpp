@@ -3,12 +3,16 @@
 //
 
 #include "irracional.h"
-#include <assert.h>
+#include <cstring>
+
 irracional::irracional(int irrational)
         : m_rational(1), m_irrational(irrational)
 {
-    assert(irrational >=0);
-    lick_balls();
+    if (irrational < 0)
+        throw new subzeroException();
+    if (irrational == 0) {m_rational = 0, m_irrational=1;}
+    else
+        lick_balls();
 }
 
 irracional::irracional(int rational, int irrational)
@@ -91,4 +95,12 @@ irracional operator *(irracional lft, const irracional& rht)
 {
     lft *= rht;
     return lft;
+}
+
+subzeroException::~subzeroException() noexcept
+{}
+
+const char* subzeroException::what() const noexcept
+{
+    return "Negative value under the root\n";
 }

@@ -9,8 +9,14 @@
 #include <string>
 #include <iostream>
 #include <cmath>
+#include <exception>
 const std::string root = "\u221A";
-
+class subzeroException : public std::exception{
+public:
+    ~subzeroException() noexcept override;
+    
+    const char* what() const _GLIBCXX_TXN_SAFE_DYN _GLIBCXX_USE_NOEXCEPT override;
+};
 class irracional : public abstr_digit {
 public:
     irracional(int irrational);

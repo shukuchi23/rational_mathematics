@@ -9,8 +9,8 @@ struct abstr_digit {
     enum types {racional, irracional};
     
     virtual double  calculate () const = 0;
-    
     virtual types getType() const  = 0;
 
 };
+
 #endif //HYDRA_ABSTR_DIGIT_H
