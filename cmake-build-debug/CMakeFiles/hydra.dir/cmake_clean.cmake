@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/hydra.dir/Double.cpp.o"
+  "CMakeFiles/hydra.dir/fraction.cpp.o"
   "CMakeFiles/hydra.dir/irracional.cpp.o"
   "CMakeFiles/hydra.dir/main.cpp.o"
   "hydra"

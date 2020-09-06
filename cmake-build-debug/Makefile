@@ -143,6 +143,60 @@ hydra/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/hydra.dir/build.make CMakeFiles/hydra.dir/build
 .PHONY : hydra/fast
 
+Double.o: Double.cpp.o
+
+.PHONY : Double.o
+
+# target to build an object file
+Double.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hydra.dir/build.make CMakeFiles/hydra.dir/Double.cpp.o
+.PHONY : Double.cpp.o
+
+Double.i: Double.cpp.i
+
+.PHONY : Double.i
+
+# target to preprocess a source file
+Double.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hydra.dir/build.make CMakeFiles/hydra.dir/Double.cpp.i
+.PHONY : Double.cpp.i
+
+Double.s: Double.cpp.s
+
+.PHONY : Double.s
+
+# target to generate assembly for a file
+Double.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hydra.dir/build.make CMakeFiles/hydra.dir/Double.cpp.s
+.PHONY : Double.cpp.s
+
+fraction.o: fraction.cpp.o
+
+.PHONY : fraction.o
+
+# target to build an object file
+fraction.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hydra.dir/build.make CMakeFiles/hydra.dir/fraction.cpp.o
+.PHONY : fraction.cpp.o
+
+fraction.i: fraction.cpp.i
+
+.PHONY : fraction.i
+
+# target to preprocess a source file
+fraction.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hydra.dir/build.make CMakeFiles/hydra.dir/fraction.cpp.i
+.PHONY : fraction.cpp.i
+
+fraction.s: fraction.cpp.s
+
+.PHONY : fraction.s
+
+# target to generate assembly for a file
+fraction.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hydra.dir/build.make CMakeFiles/hydra.dir/fraction.cpp.s
+.PHONY : fraction.cpp.s
+
 irracional.o: irracional.cpp.o
 
 .PHONY : irracional.o
@@ -206,6 +260,12 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... hydra"
+	@echo "... Double.o"
+	@echo "... Double.i"
+	@echo "... Double.s"
+	@echo "... fraction.o"
+	@echo "... fraction.i"
+	@echo "... fraction.s"
 	@echo "... irracional.o"
 	@echo "... irracional.i"
 	@echo "... irracional.s"

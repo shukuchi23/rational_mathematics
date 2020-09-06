@@ -6,57 +6,49 @@
 #include <assert.h>
 #include <cmath>
 #include <string>
-fraction::fraction(std::shared_ptr<abstr_digit> numerator, std::shared_ptr<abstr_digit> denominator)
-        : m_numerator(numerator), m_denominator(denominator)
+fraction::fraction(abstr_digit* numerator, abstr_digit* denominator)
+        : m_numerator(numerator->clone()), m_denominator(denominator->clone())
 {
     assert(m_numerator != nullptr
            && m_denominator != nullptr
-           && fabs(m_denominator->calculate()) <=0.000000000001);
-    
+           && fabs(m_denominator->calculate()) >= 0.000000000001);
 }
 
-fraction::fraction(const fraction& obj) {
+fraction::fraction(const fraction& obj)
+        : fraction(obj.m_numerator, obj.m_denominator) {}
 
-}
-
-
-fraction& fraction::operator *=(const abstr_digit*) {}
-fraction& fraction::operator -=(const abstr_digit*) {}
-fraction& fraction::operator +=(const abstr_digit*) {}
-fraction & fraction::operator /=(const abstr_digit*) {}
-double fraction::calculate() const {
+double fraction::calculate() const
+{
     return m_numerator->calculate() / m_denominator->calculate();
 }
-fraction::~fraction() {
-    m_numerator.reset();
-    m_denominator.reset();
+
+fraction::~fraction()
+{
+    delete m_numerator, m_denominator;
 }
 
-std::ostream& operator <<(std::ostream& os, const fraction& fr)
+std::string fraction::to_string() const
 {
-    if (fr.m_numerator->getType() == abstr_digit::irracional
-        && fr.m_denominator->getType() == abstr_digit::irracional )
-        os << "#(" << fr.m_numerator << " / " << fr.m_denominator << ")";
-    else
-        if (fr.m_denominator->getType() == abstr_digit::irracional)
-            os <<
-    return os;
+    std::string str_fract = "(";
+    str_fract
+            .append(m_numerator->to_string())
+            .append(") / (")
+            .append(m_denominator->to_string())
+            .append(")");
+    return str_fract;
 }
+
 
 fraction& fraction::operator =(const fraction& rht)
 {
-    return ;
+//    TODO:
+    return *this;
+//    return ;
 }
 
-fraction operator +(const fraction&, const abstr_digit*)
+fraction operator -(const fraction& lft, const abstr_digit* rht)
 {
     return fraction(nullptr, nullptr);
-}
-
-fraction operator -(const fraction&, const abstr_digit*)
-{
-
-
 }
 
 fraction operator *(const fraction&, const abstr_digit*)
@@ -71,12 +63,145 @@ fraction operator /(const fraction&, const abstr_digit*)
 
 abstr_digit::types fraction::getType() const
 {
-    return irracional;
+    return abstr_digit::fraction;
 }
 
 fraction::operator double()
 {
     return this->calculate();
 }
+
+
+fraction* fraction::clone() const
+{
+    return new fraction(*this);
+}
+
+fraction operator +(const fraction& lft, const irracional& rht)
+{
+    return fraction(nullptr, nullptr);
+}
+
+fraction operator +(const fraction&, const Double&)
+{
+    return fraction(nullptr, nullptr);
+}
+
+fraction operator +(const fraction&, const fraction&)
+{
+    
+    return fraction(nullptr, nullptr);
+}
+
+fraction operator *(const fraction&, const fraction&)
+{
+    
+    return fraction();
+}
+
+fraction operator *(const fraction&, const irracional&)
+{
+    return fraction(nullptr, nullptr);
+}
+
+fraction operator *(const fraction&, const Double&)
+{
+    return fraction(nullptr, nullptr);
+}
+
+fraction& fraction::operator *=(const fraction& rht)
+{
+    return *this;
+}
+
+fraction& fraction::operator *=(const class irracional& rht)
+{
+//    TODO:
+    return *this;
+}
+
+fraction operator /(const fraction&, const fraction&)
+{
+    return fraction(nullptr, nullptr);
+}
+
+fraction operator /(const fraction&, const irracional&)
+{
+    return fraction(nullptr, nullptr);
+}
+
+fraction operator /(const fraction&, const Double&)
+{
+    return fraction(nullptr, nullptr);
+}
+
+fraction operator -(const fraction&, const irracional&)
+{
+    return fraction(nullptr, nullptr);
+}
+
+fraction operator -(const fraction&, const Double&)
+{
+    return fraction(nullptr, nullptr);
+}
+
+fraction operator -(const fraction&, const fraction&)
+{
+    return fraction(nullptr, nullptr);
+}
+
+fraction& fraction::operator *=(const Double&)
+{
+    return <#initializer#>;
+}
+
+fraction& fraction::operator /=(const fraction&)
+{
+    return <#initializer#>;
+}
+
+fraction& fraction::operator /=(const class irracional&)
+{
+    return <#initializer#>;
+}
+
+fraction& fraction::operator /=(const Double&)
+{
+    return <#initializer#>;
+}
+
+fraction& fraction::operator +=(const fraction&)
+{
+    return <#initializer#>;
+}
+
+fraction& fraction::operator +=(const class irracional&)
+{
+    return <#initializer#>;
+}
+
+fraction& fraction::operator -=(const fraction&)
+{
+    return <#initializer#>;
+}
+
+fraction& fraction::operator -=(const class irracional&)
+{
+    return <#initializer#>;
+}
+
+fraction& fraction::operator -=(const Double&)
+{
+    return <#initializer#>;
+}
+
+fraction& fraction::operator +=(const Double&)
+{
+    return <#initializer#>;
+}
+
+
+
+
 
 

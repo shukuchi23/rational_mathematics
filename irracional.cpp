@@ -4,12 +4,12 @@
 
 #include "irracional.h"
 #include <cstring>
-
+#include <cmath>
 irracional::irracional(int irrational)
         : m_rational(1), m_irrational(irrational)
 {
     if (irrational < 0)
-        throw new subzeroException();
+        throw subzeroException();
     if (irrational == 0) {m_rational = 0, m_irrational=1;}
     else
         lick_balls();
@@ -97,8 +97,49 @@ irracional operator *(irracional lft, const irracional& rht)
     return lft;
 }
 
-subzeroException::~subzeroException() noexcept
-{}
+irracional* irracional::clone() const
+{
+    return new irracional(*this);
+}
+
+std::string irracional::to_string() const
+{
+    std::string ir_str = "";
+    if (std::fabs(m_rational) > 1)
+        ir_str += std::to_string(m_rational);
+    else if (m_rational == -1)
+        ir_str += "-";
+    
+    if (m_irrational > 1)
+        ir_str.append(root).append(std::to_string(m_irrational));
+    return ir_str;
+}
+
+//irracional::~irracional()
+//{}
+
+//bool operator <(const irracional& lhs, const abstr_digit* rhs)
+//{
+//    return std::isless(lhs.calculate(), rhs->calculate());
+//}
+//
+//bool operator >(const irracional& lhs, const abstr_digit* rhs)
+//{
+//    return std::isless(rhs->calculate(), lhs.calculate());
+//}
+//
+//bool operator <=(const irracional& lhs, const abstr_digit* rhs)
+//{
+//    return std::islessequal(lhs.calculate(), rhs->calculate());
+//}
+//
+//bool operator >=(const irracional& lhs, const abstr_digit* rhs)
+//{
+//    return !std::isless(lhs.calculate(), rhs->calculate());
+//
+//}
+
+subzeroException::~subzeroException() noexcept {}
 
 const char* subzeroException::what() const noexcept
 {

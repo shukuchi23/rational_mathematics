@@ -84,7 +84,19 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/admin/Programs/Code/CPP/Artem/hydra/Double.cpp">
+			<Option target="hydra"/>
+		</Unit>
+		<Unit filename="/home/admin/Programs/Code/CPP/Artem/hydra/Double.h">
+			<Option target="hydra"/>
+		</Unit>
 		<Unit filename="/home/admin/Programs/Code/CPP/Artem/hydra/abstr_digit.h">
+			<Option target="hydra"/>
+		</Unit>
+		<Unit filename="/home/admin/Programs/Code/CPP/Artem/hydra/fraction.cpp">
+			<Option target="hydra"/>
+		</Unit>
+		<Unit filename="/home/admin/Programs/Code/CPP/Artem/hydra/fraction.h">
 			<Option target="hydra"/>
 		</Unit>
 		<Unit filename="/home/admin/Programs/Code/CPP/Artem/hydra/irracional.cpp">

@@ -17,73 +17,89 @@ abstr_digit::types Double::getType() const
     return racional;
 }
 
-bool Double::operator ==(const Double& rhs) const
+std::string Double::to_string() const
 {
-    return std::fabs(m_value - rhs.m_value) <= eps;
+    return std::to_string(m_value);
 }
+//bool Double::operator ==(const Double& rhs) const
+//{
+//    return std::fabs(m_value - rhs.m_value) <= eps;
+//}
+//
+//bool Double::operator !=(const Double& rhs) const
+//{
+//    return !(rhs == *this);
+//}
 
-bool Double::operator !=(const Double& rhs) const
-{
-    return !(rhs == *this);
-}
-
-Double operator +(Double lft, const abstr_digit* rht)
+Double operator +(Double lft, const std::shared_ptr<abstr_digit> rht)
 {
     return lft.calculate() + rht->calculate();
 }
 
-Double operator -(Double lft, const abstr_digit* rht)
+Double operator -(Double lft, const std::shared_ptr<abstr_digit> rht)
 {
     return lft.calculate() - rht->calculate();
 }
 
-Double operator *(Double lft, const abstr_digit* rht)
+Double operator *(Double lft, const std::shared_ptr<abstr_digit> rht)
 {
     return lft.calculate() * rht->calculate();
 }
 
-Double operator /(Double lft, const abstr_digit* rht)
+Double operator /(Double lft, const std::shared_ptr<abstr_digit> rht)
 {
     return lft.calculate() / rht->calculate();
 }
 
-Double& Double::operator +=(const abstr_digit* rht)
+Double& Double::operator +=(const std::shared_ptr<abstr_digit> rht)
 {
-    this->m_value+=rht->calculate();
-    return *this;
-}
-Double& Double::operator -=(const abstr_digit* rht)
-{
-    this->m_value-=rht->calculate();
-    return *this;
-}
-Double& Double::operator *=(const abstr_digit* rht)
-{
-    this->m_value*=rht->calculate();
-    return *this;
-}
-Double& Double::operator /=(const abstr_digit* rht)
-{
-    this->m_value/=rht->calculate();
+    this->m_value += rht->calculate();
     return *this;
 }
 
-bool operator <(const Double& lhs, const Double& rhs)
+Double& Double::operator -=(const std::shared_ptr<abstr_digit> rht)
 {
-    return std::isless(lhs.m_value, rhs.m_value);
+    this->m_value -= rht->calculate();
+    return *this;
 }
 
-bool operator >(const Double& lhs, const Double& rhs)
+Double& Double::operator *=(const std::shared_ptr<abstr_digit> rht)
 {
-    return rhs < lhs;
+    this->m_value *= rht->calculate();
+    return *this;
 }
 
-bool operator <=(const Double& lhs, const Double& rhs)
+Double& Double::operator /=(const std::shared_ptr<abstr_digit> rht)
 {
-    return !(rhs < lhs);
+    this->m_value /= rht->calculate();
+    return *this;
 }
 
-bool operator >=(const Double& lhs, const Double& rhs)
+Double* Double::clone() const
 {
-    return !(lhs < rhs);
+    return new Double(*this);
 }
+
+Double::~Double() {}
+
+
+
+//bool operator <(const Double& lhs, const Double& rhs)
+//{
+//    return std::isless(lhs.calculate(), rhs.calculate());
+//}
+//
+//bool operator >(const Double& lhs, const Double& rhs)
+//{
+//    return rhs < lhs;
+//}
+//
+//bool operator <=(const Double& lhs, const Double& rhs)
+//{
+//    return !(rhs < lhs);
+//}
+//
+//bool operator >=(const Double& lhs, const Double& rhs)
+//{
+//    return !(lhs < rhs);
+//}

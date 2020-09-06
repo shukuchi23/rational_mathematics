@@ -4,6 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/admin/Programs/Code/CPP/Artem/hydra/Double.cpp" "/home/admin/Programs/Code/CPP/Artem/hydra/cmake-build-debug/CMakeFiles/hydra.dir/Double.cpp.o"
+  "/home/admin/Programs/Code/CPP/Artem/hydra/fraction.cpp" "/home/admin/Programs/Code/CPP/Artem/hydra/cmake-build-debug/CMakeFiles/hydra.dir/fraction.cpp.o"
   "/home/admin/Programs/Code/CPP/Artem/hydra/irracional.cpp" "/home/admin/Programs/Code/CPP/Artem/hydra/cmake-build-debug/CMakeFiles/hydra.dir/irracional.cpp.o"
   "/home/admin/Programs/Code/CPP/Artem/hydra/main.cpp" "/home/admin/Programs/Code/CPP/Artem/hydra/cmake-build-debug/CMakeFiles/hydra.dir/main.cpp.o"
   )

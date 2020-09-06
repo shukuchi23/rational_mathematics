@@ -1,17 +1,33 @@
-#include "irracional.h"
 #include "Double.h"
+#include "fraction.h"
+#include "irracional.h"
+
 using namespace std;
+
 int main()
 {
+    fraction frac(
+            new fraction(
+                    new irracional(12),
+                    new irracional(24)
+            ),
+            new fraction(
+                    new Double(3),
+                    new irracional(2)
+            )
+    );
+    fraction frac1(
+            new fraction(
+                    new irracional(13),
+                    new irracional(26)
+            ),
+            new fraction(
+                    new Double(5),
+                    new irracional(13)
+            )
+    );
     
-    irracional a("2#5");
-    cout << a << endl;
-    
-    irracional b(3,5);
-    cout << b << endl;
-    
-    irracional c (4900);
-    cout << c << endl;
-    
+    frac *= frac1;
+    cout << frac->to_string() << endl;
     return 0;
 }
