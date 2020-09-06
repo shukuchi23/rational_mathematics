@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/admin/Programs/Code/CPP/Artem/hydra/abstr_digit.h
+
+/home/admin/Programs/Code/CPP/Artem/hydra/irracional.h
+abstr_digit.h
+/home/admin/Programs/Code/CPP/Artem/hydra/abstr_digit.h
+string
+-
+iostream
+-
+cmath
+-
+
+/home/admin/Programs/Code/CPP/Artem/hydra/main.cpp
+irracional.h
+/home/admin/Programs/Code/CPP/Artem/hydra/irracional.h
+
